@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Custom</title>
+</head>
+<body>
+<div th:include="_header"></div>
+<div class="container" style="text-align: -webkit-center">
+    <form  th:action="@{/login}"  method="post">
+        <label class="form-label" >Username: </label>
+        <input type="text" name="username" placeholder="Username"/>
+        <br>
+        <label class="form-label" >Password: </label>
+        <input type="password" name="password" placeholder="Password"/>
+        <br>
+        <div th:if="${logout}" class="alert alert-info" role="alert">
+           You have been logged out!
+        </div>
+        <div th:if="${error}" class="alert alert-danger" role="alert">
+            Invalid username or password!
+        </div>
+        <button class="btn btn-primary" type="submit">Sing up</button>
+    </form>
+</div>
+</body>
+</html>
